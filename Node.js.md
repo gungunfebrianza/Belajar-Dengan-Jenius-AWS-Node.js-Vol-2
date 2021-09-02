@@ -21,3 +21,14 @@ Untuk mendapatkan informasi dalam **dependencies** dari **node.js project** yang
 $ npm ls
 ```
 
+
+
+## Node.js Security Updates
+
+Untuk mendapatkan informasi keamanan terbaru seputar **Node.js** silahkan kunjungi halaman :
+
+1. https://nodejs.org/en/blog/
+2. https://groups.google.com/g/nodejs-sec
+
+
+
