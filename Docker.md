@@ -21,6 +21,8 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
        - [Binding Port](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#binding-port)
        - [Image Name](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#image-name)
      - [Docker Logs](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#docker-logs)
+   - [Docker Compose](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#docker-compose)
+     - [Install docker-compose](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#install-docker-compose)
 
 
 
