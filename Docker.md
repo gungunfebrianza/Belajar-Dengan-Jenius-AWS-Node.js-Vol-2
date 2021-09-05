@@ -13,7 +13,7 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 
 ## Dockerization
 
-
+Tujuan dari pembuatan **image** atau **containerizing** adalah agar lebih mudah untuk melakukan **shipping** dan **deployment**. Untuk membuat sebuah **image** kita perlu membuat sebuah **dockerfile** terlebih dahulu. **Dockerfile** adalah sekumpulan instruksi bagaimana membangun sebuah **image**.
 
 ### Dockerfile
 
@@ -49,6 +49,8 @@ Untuk memahami instruksi **dockerfile** di atas, mas gun akan menjelaskannya sat
 Perintah ini digunakan untuk menyalin **package.json & package-lock.json**, **./src** dan **./videos** ke dalam **image** yang akan kita buat.
 
 #### CMD Instruction
+
+**CMD Instruction** digunakan untuk agar kita dapat mengeksekusi **node.js project** dalam **image**.
 
 ### Build Command
 
