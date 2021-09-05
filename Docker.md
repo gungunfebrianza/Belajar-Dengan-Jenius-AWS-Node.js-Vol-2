@@ -6,7 +6,7 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 # Table of Contents
 
 1. [Docker](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#docker)
-   - Node.js Example Project
+   - [Node.js Example Project](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#nodejs-example-project)
    - [Dockerization](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#dockerization)
      - [Dockerfile](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#dockerfile)
        - [FROM Instruction](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#from-instruction)
@@ -171,3 +171,16 @@ Untuk membaca **logs** dari **container** eksekusi perintah berikut :
 $ docker logs d15d5073f41a
 ```
 
+Parameter yang dibutuhkan adalah **container id** yaitu **d15d5073f41a**.
+
+### Publish Image
+
+#### Private Docker Registry 
+
+Jika anda menggunakan **Microsoft Azure** anda dapat menggunakan **Container Registry** yang bisa anda dapatkan melalui **Marketplace**.
+
+#### Public Docker Registry
+
+## Docker Compose
+
+**Docker compose** dapat kita gunakan untuk melakukan konfigurasi, **build**, **run** dan **manage** lebih dari 1 **containers** dalam waktu yang bersamaan.
