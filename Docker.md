@@ -9,7 +9,16 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
    - Node.js Example Project
    - Dockerization
      - Dockerfile
+       - FROM Instruction
+       - WORKDIR Instruction
+       - RUN Instruction
+       - COPY Instruction
+       - CMD Instruction
      - Build Command
+       - Tag Argument
+     - Run Command
+       - Detach Mode
+       - Binding
 
 
 
@@ -139,3 +148,5 @@ Jika kita bedah perintah di atas maka terdapat **detach mode** dan **binding por
 #### Detach Mode
 
 #### Binding
+
+Pada perintah di atas terdapat **flag -p** yang digunakan untuk melakukan **binding port** dari **host operating system** dan **container** yang kita buat. Konsepnya seperti **port forwarding** ketika terdapat **traffic** dari **port 3000** kita dapat mengarahkannya menuju **port** **3000** dalam **container** yang telah kita buat.
