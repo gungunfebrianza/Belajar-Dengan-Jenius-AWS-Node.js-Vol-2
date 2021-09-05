@@ -100,3 +100,23 @@ Successfully tagged video-streaming:latest
 
 Jika image dari **node** belum tersedia maka **docker** akan terlebih dahulu melakukan **download node image** pada **dockerhub**, terkecuali jika **image** sudah terpasang sebelumnya.
 
+#### Tag Argument
+
+Saat kita mengeksekusi perintah build pada docker kita menggunakan **flag -t**, tujuannya agar kita dapat memberikan penamaan pada **image** yang akan kita buat. Jika kita tidak menggunakan **flag -t** maka **docker** akan memberikan nama random secara otomatis.
+
+```bash
+$ docker images
+```
+
+Jika perintah di atas kita eksekusi maka kita dapat melihat **images** yang telah kita buat dan tanam :
+
+|   Repository    |      Tag       |   Image ID   |    Created     |  Size  |
+| :-------------: | :------------: | :----------: | :------------: | :----: |
+| video-streaming |     latest     | 9a961caeba7f | 25 minutes ago |  93MB  |
+|      node       | 12.18.1-alpine | 06a4a7b5263d | 14 months ago  | 89.3MB |
+|      node       |     latest     | 1016313cda78 |  10 days ago   | 907MB  |
+
+
+
+
+
