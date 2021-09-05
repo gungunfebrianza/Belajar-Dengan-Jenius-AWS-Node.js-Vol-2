@@ -5,20 +5,22 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 
 # Table of Contents
 
-1. Docker
+1. [Docker](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#docker)
    - Node.js Example Project
-   - Dockerization
-     - Dockerfile
-       - FROM Instruction
-       - WORKDIR Instruction
-       - RUN Instruction
-       - COPY Instruction
-       - CMD Instruction
-     - Build Command
-       - Tag Argument
-     - Run Command
-       - Detach Mode
-       - Binding
+   - [Dockerization](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#dockerization)
+     - [Dockerfile](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#dockerfile)
+       - [FROM Instruction](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#from-instruction)
+       - [WORKDIR Instruction](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#workdir-instruction)
+       - [RUN Instruction](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#run-instruction)
+       - [COPY Instruction](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#copy-instruction)
+       - [CMD Instruction](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#cmd-instruction)
+     - [Build Command](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#build-command)
+       - [Tag Argument](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#tag-argument)
+     - [Run Command](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#run-command)
+       - [Detach Mode](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#detach-mode)
+       - Binding Port
+       - [Image Name](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#image-name)
+     - Docker Logs
 
 
 
@@ -153,11 +155,19 @@ Pada perintah di atas terdapat **flag -d** yang digunakan untuk melakukan **deta
 | ------------ | --------------- | ---------------------- | ------------- | ---------------- | ----------------------------------------- | --------- |
 | d15d5073f41a | video-streaming | "docker-entrypoint.s…" | 3 minutes ago | Up 3 minutes ago | 0.0.0.0:3000->3000/tcp, :::3000->3000/tcp | zan_katak |
 
-#### Binding
+#### Binding Port
 
 Pada perintah di atas terdapat **flag -p** yang digunakan untuk melakukan **binding port** dari **host operating system** dan **container** yang kita buat. Konsepnya seperti **port forwarding** ketika terdapat **traffic** dari **port 3000** kita dapat mengarahkannya menuju **port** **3000** dalam **container** yang telah kita buat.
 
 #### Image Name
 
 Pada perintah di atas kita memberikan **image name** dengan nama **video-streaming**.
+
+### Docker logs
+
+Untuk membaca **logs** dari **container** eksekusi perintah berikut :
+
+```bash
+$ docker logs d15d5073f41a
+```
 
