@@ -126,5 +126,16 @@ Jika perintah di atas kita eksekusi maka kita dapat melihat **images** yang tela
 
 Jika kita perhatikan **node** versi **alpine** memiliki **size** yang lebih kecil dan hemat dibandingkan dengan **node** yang versi **non-alpine**.
 
+### Run Command
 
+Setelah kita membuat **image** selanjutnya kita dapat melakukan **booting image video-streaming** menjadi sebuah **container** dengan mengeksekusi perintah berikut :
 
+```bash
+$ docker run -d -p 3000:3000 video-streaming
+```
+
+Jika kita bedah perintah di atas maka terdapat **detach mode** dan **binding port** :
+
+#### Detach Mode
+
+#### Binding
