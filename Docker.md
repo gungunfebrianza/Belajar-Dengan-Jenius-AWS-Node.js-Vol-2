@@ -28,11 +28,25 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 
 **Docker** adalah **package manager** yang dapat kita gunakan untuk melakukan **bundling code**, **assets**, **configuration** dan **dependencies** yang kita buat. Sebagai contoh kita dapat melakukan **packing** aplikasi **node.js**, **golang**, **java** atau **bash script** yang telah kita buat ke dalam sebuah **image** atau **docker image**. Selanjutnya **image** tersebut dapat kita distribusikan ke tempat sistem penyimpanan data tersentral yang disebut dengan **container registry** agar bisa digunakan oleh **developer** lainnya.  
 
+----
+
+
+
 ## Node.js Example Project 
+
+Untuk aplikasi **node.js** yang akan dijadikan **example** dalam **project** ini terdapat dalam **folder src** dengan nama **example-1**.
+
+-----
+
+
 
 ## Dockerization
 
 Tujuan dari pembuatan **image** atau **containerizing** adalah agar lebih mudah untuk melakukan **shipping** dan **deployment**. Untuk membuat sebuah **image** kita perlu membuat sebuah **dockerfile** terlebih dahulu. **Dockerfile** adalah sekumpulan instruksi bagaimana membangun sebuah **image**.
+
+---------
+
+
 
 ### Dockerfile
 
@@ -70,6 +84,10 @@ Perintah ini digunakan untuk menyalin **package.json & package-lock.json**, **./
 #### CMD Instruction
 
 **CMD Instruction** digunakan untuk agar kita dapat mengeksekusi **node.js project** dalam **image**.
+
+--------
+
+
 
 ### Build Command
 
@@ -137,6 +155,10 @@ Jika perintah di atas kita eksekusi maka kita dapat melihat **images** yang tela
 
 Jika kita perhatikan **node** versi **alpine** memiliki **size** yang lebih kecil dan hemat dibandingkan dengan **node** yang versi **non-alpine**.
 
+---------
+
+
+
 ### Run Command
 
 Setelah kita membuat **image** selanjutnya kita dapat melakukan **booting image video-streaming** menjadi sebuah **container** dengan mengeksekusi perintah berikut :
@@ -173,6 +195,10 @@ $ docker logs d15d5073f41a
 
 Parameter yang dibutuhkan adalah **container id** yaitu **d15d5073f41a**.
 
+-------
+
+
+
 ### Publish Image
 
 #### Private Docker Registry 
@@ -181,6 +207,36 @@ Jika anda menggunakan **Microsoft Azure** anda dapat menggunakan **Container Reg
 
 #### Public Docker Registry
 
+
+
+---------
+
+
+
 ## Docker Compose
 
-**Docker compose** dapat kita gunakan untuk melakukan konfigurasi, **build**, **run** dan **manage** lebih dari 1 **containers** dalam waktu yang bersamaan.
+**Docker compose** dapat kita gunakan untuk melakukan konfigurasi, **build**, **run** dan **manage** lebih dari 1 **containers** dalam waktu yang bersamaan. Selanjutnya untuk memanajemen sekumpulan **container** kita akan menggunakan **kubernetes**.
+
+Pada fase ini kita akan melakukan **scaling up** dari 1 **container** menjadi lebih dari 1 **container**.
+
+### Install docker-compose
+
+Untuk melakukan instalasi **docker-compose** eksekusi perintah berikut :
+
+```bash
+$ docker curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+
+Saat buku ini ditulis **docker-compose** yang digunakan adalah versi **1.29.2,** selanjutnya eksekusi perintah di bawah ini :
+
+```bash
+$ docker chmod +x /usr/local/bin/docker-compose
+```
+
+Untuk memastikan bahwa **docker-compose** telah terpasang eksekusi perintah berikut :
+
+```bash
+$ docker-compose --version
+docker-compose version 1.29.2, build 5becea4c
+```
+
