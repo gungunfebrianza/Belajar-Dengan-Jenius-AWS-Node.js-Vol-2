@@ -143,10 +143,16 @@ Setelah kita membuat **image** selanjutnya kita dapat melakukan **booting image 
 $ docker run -d -p 3000:3000 video-streaming
 ```
 
-Jika kita bedah perintah di atas maka terdapat **detach mode** dan **binding port** :
+Jika kita bedah perintah run di atas maka terdapat **Detach Mode**, **Binding Port** dan **Image Name** :
 
 #### Detach Mode
+
+Pada perintah di atas terdapat **flag -d** yang digunakan untuk melakukan **detach mode** agar container berjalan di belakang layar (**background**).  
 
 #### Binding
 
 Pada perintah di atas terdapat **flag -p** yang digunakan untuk melakukan **binding port** dari **host operating system** dan **container** yang kita buat. Konsepnya seperti **port forwarding** ketika terdapat **traffic** dari **port 3000** kita dapat mengarahkannya menuju **port** **3000** dalam **container** yang telah kita buat.
+
+#### Image Name
+
+Pada perintah di atas kita memberikan **image name** dengan nama **video-streaming**.
