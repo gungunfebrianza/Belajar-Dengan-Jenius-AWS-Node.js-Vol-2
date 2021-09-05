@@ -30,9 +30,15 @@ COPY ./videos ./videos
 CMD npm start
 ```
 
+Untuk memahami instruksi **dockerfile** di atas, mas gun akan menjelaskannya satu persatu :
+
 #### FROM Instruction 
 
+**From Instruction** digunakan untuk menentukan **base Image**, artinya **image** yang kita buat memerlukan **node:12.18.1-alpine image** untuk bisa berjalan.
+
 #### WORKDIR Instruction 
+
+Directory yang akan digunakan dalam image
 
 #### RUN Instruction 
 
