@@ -17,7 +17,7 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 
 ### Dockerfile
 
-Buat dockerfile dengan instruksi berikut :
+Buat **dockerfile** dengan instruksi berikut :
 
 ```dockerfile
 FROM node:12.18.1-alpine
@@ -30,7 +30,17 @@ COPY ./videos ./videos
 CMD npm start
 ```
 
+#### FROM Instruction 
 
+#### WORKDIR Instruction 
+
+#### RUN Instruction 
+
+#### COPY Instruction 
+
+Perintah ini digunakan untuk menyalin **package.json & package-lock.json**, **./src** dan **./videos** ke dalam **image** yang akan kita buat.
+
+#### CMD Instruction
 
 ### Build Command
 
@@ -79,3 +89,4 @@ Successfully tagged video-streaming:latest
 ```
 
 Jika image dari **node** belum tersedia maka **docker** akan terlebih dahulu melakukan **download node image** pada **dockerhub**, terkecuali jika **image** sudah terpasang sebelumnya.
+
