@@ -147,7 +147,11 @@ Jika kita bedah perintah run di atas maka terdapat **Detach Mode**, **Binding Po
 
 #### Detach Mode
 
-Pada perintah di atas terdapat **flag -d** yang digunakan untuk melakukan **detach mode** agar container berjalan di belakang layar (**background**).  
+Pada perintah di atas terdapat **flag -d** yang digunakan untuk melakukan **detach mode** agar **container** berjalan di belakang layar (**background**).  **Container** akan berjalan di dalam **background**, untuk memastikan **container** sudah berjalan di dalam **background** eksekusi perintah **docker ps** :
+
+| Container ID | Image           | Command                | Created       | Status           | Ports                                     | Names     |
+| ------------ | --------------- | ---------------------- | ------------- | ---------------- | ----------------------------------------- | --------- |
+| d15d5073f41a | video-streaming | "docker-entrypoint.s…" | 3 minutes ago | Up 3 minutes ago | 0.0.0.0:3000->3000/tcp, :::3000->3000/tcp | zan_katak |
 
 #### Binding
 
@@ -156,3 +160,4 @@ Pada perintah di atas terdapat **flag -p** yang digunakan untuk melakukan **bind
 #### Image Name
 
 Pada perintah di atas kita memberikan **image name** dengan nama **video-streaming**.
+
