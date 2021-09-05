@@ -3,6 +3,14 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 # Belajar Dengan Jenius AWS & Node.js Volume 2
 ## Author : Gun Gun Febrianza
 
+# Table of Contents
+
+1. Docker
+   - Node.js Example Project
+   - Dockerization
+     - Dockerfile
+     - Build Command
+
 
 
 # Docker
@@ -116,7 +124,7 @@ Jika perintah di atas kita eksekusi maka kita dapat melihat **images** yang tela
 |      node       | 12.18.1-alpine | 06a4a7b5263d | 14 months ago  | 89.3MB |
 |      node       |     latest     | 1016313cda78 |  10 days ago   | 907MB  |
 
-Jika kita perhatikan node versi alpine memiliki size yang lebih kecil dan hemat dibandingkan dengan node yang versi non-alpine.
+Jika kita perhatikan **node** versi **alpine** memiliki **size** yang lebih kecil dan hemat dibandingkan dengan **node** yang versi **non-alpine**.
 
 
 
