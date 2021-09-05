@@ -15,25 +15,13 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 
 # Chapter 2 - Express.js
 
-#  
-
-# Chapter 3 - Amazon Web Services 
 
 
-
-# Chapter 4
+# Chapter 3 - Docker
 
 
 
-
-
-
-
-* ### Chapter 6	
-
-* ### Amazon Web Service	
-
-***
+# Chapter 4 - Amazon Web Services 
 
 * ### Subchapter 1 – AWS Resources	
 
@@ -157,11 +145,7 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 
 ***
 
-* ### Chapter 7	
-
-* ### Big Data	
-
-***
+# Chapter 5 - Big Data
 
 * ### Subchapter 1 – Introduction to Database	
 
