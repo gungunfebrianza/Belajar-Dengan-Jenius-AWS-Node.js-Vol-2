@@ -38,9 +38,11 @@ Untuk memahami instruksi **dockerfile** di atas, mas gun akan menjelaskannya sat
 
 #### WORKDIR Instruction 
 
-Directory yang akan digunakan dalam image
+**Directory** yang akan digunakan dalam **image**.
 
 #### RUN Instruction 
+
+**Run Instruction** digunakan agar kita bisa mengeksekusi perintah tertentu sebelum **image** dapat digunakan.
 
 #### COPY Instruction 
 
