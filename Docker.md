@@ -11,5 +11,17 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 
 ## Node.js Project 
 
+## Dockerization
 
+
+
+### Dockerfile
+
+### Build Command
+
+Untuk membuat **image** dari **node.js project** yang telah kita buat eksekusi perintah berikut :
+
+```bash
+$ docker build -t video-streaming --file Dockerfile .
+```
 
