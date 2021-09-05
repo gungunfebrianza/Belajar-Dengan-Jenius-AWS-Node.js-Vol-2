@@ -18,17 +18,17 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
        - [Tag Argument](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#tag-argument)
      - [Run Command](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#run-command)
        - [Detach Mode](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#detach-mode)
-       - Binding Port
+       - [Binding Port](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#binding-port)
        - [Image Name](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#image-name)
-     - Docker Logs
+     - [Docker Logs](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#docker-logs)
 
 
 
 # Docker
 
+**Docker** adalah **package manager** yang dapat kita gunakan untuk melakukan **bundling code**, **assets**, **configuration** dan **dependencies** yang kita buat. Sebagai contoh kita dapat melakukan **packing** aplikasi **node.js**, **golang**, **java** atau **bash script** yang telah kita buat ke dalam sebuah **image** atau **docker image**. Selanjutnya **image** tersebut dapat kita distribusikan ke tempat sistem penyimpanan data tersentral yang disebut dengan **container registry** agar bisa digunakan oleh **developer** lainnya.  
 
-
-## Node.js Project 
+## Node.js Example Project 
 
 ## Dockerization
 
