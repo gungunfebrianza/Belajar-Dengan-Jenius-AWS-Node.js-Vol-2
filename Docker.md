@@ -225,7 +225,7 @@ Jika metode seperti ini terus digunakan maka ketika **application** kita semakin
 
 Untuk mengatasi permasalahan inilah **docker compose** diciptakan.
 
-Docker Compose adalah sebuah file yang di dalamnya terdapat instruksi untuk mengeksekusi,
+**Docker Compose** adalah sebuah **file** yang di dalamnya terdapat instruksi untuk mengeksekusi,
 
 ---
 
@@ -250,5 +250,28 @@ Untuk memastikan bahwa **docker-compose** telah terpasang eksekusi perintah beri
 ```bash
 $ docker-compose --version
 docker-compose version 1.29.2, build 5becea4c
+```
+
+### Build Docker Compose 
+
+//todo example node.js project
+
+Di bawah ini adalah contoh **docker compose** dari aplikasi yang akan kita buat:
+
+```yaml
+version: '3'
+services:
+
+  video-streaming:
+    image: video-streaming
+    build: 
+      context: ./video-streaming
+      dockerfile: Dockerfile
+    container_name: video-streaming
+    ports:
+     - "4000:80"
+    environment:
+      - PORT=80
+    restart: "no"
 ```
 
