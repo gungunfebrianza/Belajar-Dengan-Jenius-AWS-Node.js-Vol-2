@@ -225,6 +225,8 @@ Jika metode seperti ini terus digunakan maka ketika **application** kita semakin
 
 Untuk mengatasi permasalahan inilah **docker compose** diciptakan.
 
+Docker Compose adalah sebuah file yang di dalamnya terdapat instruksi untuk mengeksekusi,
+
 ---
 
 
