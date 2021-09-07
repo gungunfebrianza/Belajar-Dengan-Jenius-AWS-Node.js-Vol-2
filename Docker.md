@@ -278,3 +278,15 @@ services:
     restart: "no"
 ```
 
+Untuk melakukan **build** eksekusi perintah berikut :
+
+```bash
+~$ sudo docker-compose up --build
+video-streaming    | 
+video-streaming    | > example-1@1.0.0 start /usr/src/app
+video-streaming    | > node ./src/index.js
+video-streaming    | 
+```
+
+Perintah **up** digunakan untuk melakukan **booting** dan **--build argument** digunakan agar **Docker Compose** melakukan **build** setiap **images** sebelum membuat sebuah **containers**. 
+
