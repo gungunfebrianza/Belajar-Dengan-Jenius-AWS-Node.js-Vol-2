@@ -24,6 +24,7 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
    - [Docker Compose](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#docker-compose)
      - [Install docker-compose](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#install-docker-compose)
      - Build docker-compose
+     - List docker-compose
 
 
 
@@ -289,4 +290,23 @@ video-streaming    |
 ```
 
 Perintah **up** digunakan untuk melakukan **booting** dan **--build argument** digunakan agar **Docker Compose** melakukan **build** setiap **images** sebelum membuat sebuah **containers**. 
+
+----
+
+
+
+### List docker-compose
+
+Untuk melihat **containers** yang sedang berjalan eksekusi perintah berikut :
+
+```bash
+~$ sudo docker-compose ps
+```
+
+Di bawah ini adalah **output** dari perintah di atas :
+
+|       Name       |            Command             | State |                Ports                 |
+| :--------------: | :----------------------------: | :---: | :----------------------------------: |
+| video-streaming1 | docker-entrypoint.sh /bin/ ... |  up   | 0.0.0.0:4000->80/tcp,:::4000->80/tcp |
+| video-streaming2 | docker-entrypoint.sh /bin/ ... |  up   | 0.0.0.0:4001->80/tcp,:::4001->80/tcp |
 
