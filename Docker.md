@@ -23,6 +23,7 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
      - [Docker Logs](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#docker-logs)
    - [Docker Compose](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#docker-compose)
      - [Install docker-compose](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md#install-docker-compose)
+     - Build docker-compose
 
 
 
@@ -225,7 +226,9 @@ Jika metode seperti ini terus digunakan maka ketika **application** kita semakin
 
 Untuk mengatasi permasalahan inilah **docker compose** diciptakan.
 
-**Docker Compose** adalah sebuah **file** yang di dalamnya terdapat instruksi untuk mengeksekusi,
+### YAML
+
+**Docker Compose** adalah sebuah **file** dengan **YAML Format** yang di desain sebagai bahasa untuk membuat sebuah konfigurasi.
 
 ---
 
@@ -252,7 +255,7 @@ $ docker-compose --version
 docker-compose version 1.29.2, build 5becea4c
 ```
 
-### Build Docker Compose 
+### Build docker-compose 
 
 //todo example node.js project
 
