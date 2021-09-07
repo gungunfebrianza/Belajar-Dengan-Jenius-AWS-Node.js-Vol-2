@@ -219,7 +219,11 @@ Jika anda menggunakan **Microsoft Azure** anda dapat menggunakan **Container Reg
 
 **Docker compose** dapat kita gunakan untuk melakukan konfigurasi, **build**, **run** dan **manage multi-container** (lebih dari 1 **container**) dalam waktu yang bersamaan. Penggunaan **Docker Compose** sangat membantu untuk **development** dan **testing microservices**.  
 
-Saat **development** kita akan melakukan **boot** dan **reboot** seluruh **applications** secara berulang-ulang hanya untuk perubahan-perubahan kecil. Kita dapat menggunakan lebih dari 1 terminal masing-masing mengeksekusi 1 **microservices** yang dibuat menggunakan **node.js**, jika kita memiliki banyak **microservices** cara ini benar-benar sangat tidak efektif.
+Saat **development** kita akan melakukan **boot** dan **reboot** seluruh **applications** secara berulang-ulang hanya untuk perubahan-perubahan kecil. Kita dapat menggunakan lebih dari 1 **terminal** masing-masing mengeksekusi 1 **microservices** yang dibuat menggunakan **node.js**, jika kita memiliki banyak **microservices** cara ini benar-benar sangat tidak efektif.
+
+Jika metode seperti ini terus digunakan maka ketika **application** kita semakin membesar, biaya **development** akan semakin membesar, memperlambat inovasi yang akan kita lakukan, merusak produktivitas dan motivasi kita dalam mengembangkan **application**. 
+
+Untuk mengatasi permasalahan inilah **docker compose** diciptakan.
 
 ---
 
