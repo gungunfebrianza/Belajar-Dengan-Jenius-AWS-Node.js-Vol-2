@@ -7,7 +7,7 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 
 # Software Testing
 
-# Mocha
+# Mocha & Chai
 
 **Javascript** menyediakan **framework** untuk melakukan **testing** baik untuk **node.js** atau di lingkungan **browser** yaitu **Mocha**. 
 
@@ -56,5 +56,58 @@ Untuk mengeksekusi test :
 
 ```bash
 $ npm test
+```
+
+---
+
+
+
+## Assertions
+
+Pada kasus di atas kita menggunakan assertion bawaan dari [node.js](https://nodejs.org/api/assert.html), kita dapat menggunakan **assertion libraries** seperti [Chai](https://www.chaijs.com/). D
+
+Untuk memasang chai eksekusi perintah berikut :
+
+```bash
+$ npm install --save-dev chai
+```
+
+Pada **file test.js** tambahkan kode berikut :
+
+```javascript
+var chai = require("chai");
+var expect = chai.expect;
+```
+
+Selanjutnya kita akan menggunakan **expect** :
+
+```javascript
+var foo = "hello";
+
+describe("Expect String", function () {
+  it("should to be a string", function () {
+    expect(foo).to.be.a("string");
+  });
+});
+```
+
+Selanjutnya jalankan **test** :
+
+```bash
+$ npm run test
+```
+
+**Output** dari **testing** kode di atas :
+
+```
+  Array
+    #indexOf()
+      ✔ should return -1 when the value is not present
+
+  Expect String
+    ✔ should to be a string
+
+
+  2 passing (18ms)
 ```
 
