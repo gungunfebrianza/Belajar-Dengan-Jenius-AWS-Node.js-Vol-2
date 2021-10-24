@@ -43,9 +43,38 @@ newStr = str.replaceAll(pattern, function (match, offset, str) {
 console.log(newStr);
 ```
 
+**Pattern gi** digunakan untuk mendapatkan seluruh **substring maudy** dan **case sensitive**.
+
 Output :
 
 ```
 //output : Maudya Ayunda Faza Cantik, MAUDYA AYUNDA FAZA Manis, maudya ayunda faza Pintar
+```
+
+### Numeric Separator
+
+Di bawah ini adalah contoh kode yang memiliki **readability problem** :
+
+```javascript
+const price = 1000000000;
+```
+
+Untuk mengatasi permasalahan ini, kini terdapat **javascript numeric separator** :
+
+```javascript
+const price = 1_000_000_000;
+```
+
+Kita tetap bisa melakukan operasi **arithmetic** pada **variable price** :
+
+```javascript
+const price = 1_000_000_000;
+console.log(price * 2);
+```
+
+Output :
+
+```
+2000000000
 ```
 
