@@ -297,7 +297,7 @@ Perintah **up** digunakan untuk melakukan **booting** dan **--build argument** d
 
 ### List docker-compose
 
-Untuk melihat **containers** yang sedang berjalan eksekusi perintah berikut :
+Untuk melihat **containers** yang sedang berjalan eksekusi perintah berikut di dalam directory tempat docker-compose.yml :
 
 ```bash
 ~$ sudo docker-compose ps
