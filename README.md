@@ -9,19 +9,37 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 
 
 
-# Chapter 1 - Node.js 
+# Chapter 1 - Git 
 
 
 
-# Chapter 2 - Express.js
+# Chapter 2 - Node.js 
 
 
 
-# Chapter 3 - [Docker](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md)
+# Chapter 3 - Express.js
 
 
 
-# Chapter 4 - Amazon Web Services 
+## CORS
+
+**CORS** (**Cross-Origin Resource Sharing**) dan **SOP** (**Same-Origin Policy**) adalah sebuah **server-side configurations** yang dapat di gunakan oleh **client** atau tidak sama sekali. 
+
+
+
+# Chapter 3 - Prisma.js
+
+
+
+# Chapter 4 - Postman
+
+
+
+# Chapter 5 - [Docker](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md)
+
+
+
+# Chapter 6 - Amazon Web Services 
 
 * ### Subchapter 1 – AWS Resources	
 
@@ -145,7 +163,9 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 
 ***
 
-# Chapter 5 - Big Data
+
+
+# Chapter 7 - Big Data
 
 * ### Subchapter 1 – Introduction to Database	
 
