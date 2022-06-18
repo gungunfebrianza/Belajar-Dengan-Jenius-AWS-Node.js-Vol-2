@@ -19,6 +19,39 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 
 # Chapter 3 - Express.js
 
+Notes :
+
+**4.x API Version**, last touched on 6-17-2022
+
+
+
+---
+
+
+
+## API Reference
+
+### Express Object 
+
+Untuk membuat sebuah **express applications** gunakan **top level function express()** yang telah di **export** oleh **express module**.  Perhatikan kode di bawah ini :
+
+```javascript
+var express = require('express')
+var app = express()
+```
+
+
+
+### Methods
+
+#### express.json()
+
+**express.json()** adalah sebuah **built-in middleware function** dalam **express**, fungsinya digunakan untuk melakukan **parsing** atas permintaan (**request**) yang memiliki **payload** dalam format **JSON** dan menjadi basis dalam **middleware body-parser**.
+
+
+
+
+
 
 
 ## CORS
@@ -27,19 +60,49 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 
 
 
-# Chapter 3 - Prisma.js
+## JSON Web Token (JWT)
+
+A <---JSON---> B
+
+**JSON Web Token (JWT)** digunakan untuk berbagi informasi dengan aman antar dua entitas menggunakan **JSON Object**, ketika JWT telah di produksi tidak terdapat cara untuk mengubah konten di dalamnya. JWT selalu ditandatangani menggunakan **Cryptographic Hashing** seperti **RSA**, untuk memverifikasi integritas informasi yang ada di dalam **JSON Object**.
+
+Struktur **JSON Web Token (JWT)** :
+
+1. Header
+2. Payload
+3. Signature
 
 
 
-# Chapter 4 - Postman
+# Chapter 4 - Prisma.js
 
 
 
-# Chapter 5 - [Docker](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md)
+# Chapter 5 - Postman
 
 
 
-# Chapter 6 - Amazon Web Services 
+## Postman Interceptor
+
+**Postman Interceptor** adalah sebuah **Chrome Extension** yang menjadi jembatan untuk bisa terintegrasi dengan **Postman Dekstop Apps**. Dengan **interceptor** kita bisa mendapatkan **network request** dan **cookies** dari **chrome browser** yang kita gunakan.
+
+Setelah **interceptor** berjalan di dalam **chrome browser** kita bisa melakukan **debug session**.
+
+**Install Postman Interceptor** disini :
+
+```
+https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo?hl=en
+```
+
+Pada **Postman Dekstop App footer** klik **Capture Request**, kemudian **install Interceptor Bridge**.
+
+
+
+# Chapter 6 - [Docker](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md)
+
+
+
+# Chapter 7 - Amazon Web Services 
 
 * ### Subchapter 1 – AWS Resources	
 
@@ -165,7 +228,7 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 
 
 
-# Chapter 7 - Big Data
+# Chapter 8 - Big Data
 
 * ### Subchapter 1 – Introduction to Database	
 
