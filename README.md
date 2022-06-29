@@ -13,15 +13,42 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 
 
 
-# Chapter 2 - Node.js 
+# Chapter 2 - Node.js
+
+Last touched on 6-29-2022
+
+| Parameter                        | Value                       | Note |
+| -------------------------------- | --------------------------- | ---- |
+| Official Website                 | https://nodejs.org/en/      |      |
+| Node.js Latest Version (LTS)     | 16.15.1                     |      |
+| Node.js Latest Version (Current) | 18.14.0                     |      |
+|                                  |                             |      |
+| Node.js Blog                     | https://nodejs.org/en/blog/ |      |
+
+
+
+
+
+Saat kita sedang melakukan pemasangan **module** terdapat dua mode yaitu :
+
+- **devDependencies** adalah **module** yang dibutuhkan saat melakukan **development**.
+- **dependencies** adalah **module** yang dibutuhkan saat **runtime**.
 
 
 
 # Chapter 3 - Express.js
 
-Notes :
+Last touched on 6-29-2022
 
-**4.x API Version**, last touched on 6-17-2022
+| Parameter  | Value                                     | Note |
+| ---------- | ----------------------------------------- | ---- |
+| Repository | 3.14.0 - https://github.com/prisma/prisma |      |
+| Website    | [www.prisma.io](https://www.prisma.io)    |      |
+|            |                                           |      |
+
+
+
+
 
 
 
@@ -30,6 +57,10 @@ Notes :
 
 
 ## API Reference
+
+Notes :
+
+**4.x API Version**, last touched on 6-17-2022
 
 ### Express Object 
 
@@ -76,7 +107,17 @@ Struktur **JSON Web Token (JWT)** :
 
 # Chapter 4 - Prisma.js
 
-**Prisma** adalah **Open Source Object Relational Mapper (ORM)** Generasi Terbaru (**Next-generation ORM**). Prisma dapat digunakan dalam **Node.js** dan **Typescript Application** di **back-end system**. **Prisma** dapat digunakan di dalam arsitektur **microservices** dan **serverless**. Kita bisa menerapkan Prisma untuk mempermudah pembangunan **REST API**, **GraphQL API** dan **gRPC API**.
+Last touched on 6-29-2022
+
+| Parameter  | Value                                     | Note |
+| ---------- | ----------------------------------------- | ---- |
+| Repository | 3.14.0 - https://github.com/prisma/prisma |      |
+| Website    | [www.prisma.io](https://www.prisma.io)    |      |
+|            |                                           |      |
+
+**Prisma** adalah **Open Source Object Relational Mapper (ORM)** Generasi Terbaru (**Next-generation ORM**). Dikatakan terbaru karena **Prisma** adalah **project open source** untuk **Node.js** dan **typescript** yang ditulis menggunakan bahasa pemrograman **Rust**.
+
+Prisma dapat digunakan dalam **Node.js** dan **Typescript Application** di **back-end system**. **Prisma** dapat digunakan di dalam arsitektur **microservices** dan **serverless**. Kita bisa menerapkan Prisma untuk mempermudah pembangunan **REST API**, **GraphQL API** dan **gRPC API**.
 
 
 
@@ -87,6 +128,104 @@ Struktur **JSON Web Token (JWT)** :
 1. **Prisma Client** - Untuk memproduksi **tyfe-safe database client** secara otomatis.
 2. **Prisma Migrate** - Untuk melakukan **data modelling** secara **declarative** dan kustomisasi **migrations**.
 3. **Prisma Studio** - Sebuah **Web Application** berbasis **Graphic User Interface (GUI)** untuk mengolah **database**.
+
+
+
+## Examples
+
+
+
+### Create Basic Project
+
+Buat **directory project** kemudian di dalam **directory** eksekusi perintah di bawah ini :
+
+```bash
+$ npm init -y
+```
+
+Saat kita sedang melakukan pemasangan **module** terdapat dua mode yaitu :
+
+- **devDependencies** adalah **module** yang dibutuhkan saat melakukan **development**.
+- **dependencies** adalah **module** yang dibutuhkan saat **runtime**.
+
+```bash
+$ npm install typescript ts-node @types/node --save-dev
+```
+
+Di bawah ini adalah penjelasan **modules** yang kita pasang :
+
+1. **Module typescript** digunakan agar kita memiliki **TypeScript toolchains**.
+2. **Module ts-node** digunakan agar kita bisa menjalankan **typescript applications**.
+3. **Module @types/node** digunakan agar **Node.js** yang kita pakai dapat menggunakan  **Type Definitions** dalam **Typescript**.
+
+----
+
+
+
+### Generate tsconfig
+
+Eksekusi perintah di bawah ini untuk memproduksi file konfigurasi **TypeScript** :
+
+```bash
+$ tsc --init
+```
+
+Selanjutnya ubah isi **file** konfigurasi dari **tsconfig.json** menjadi :
+
+```json
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "outDir": "dist",
+    "strict": true,
+    "lib": ["esnext"],
+    "esModuleInterop": true
+  }
+}
+```
+
+
+
+### Setup Docker
+
+```bash
+$ nano docker-compose.yml
+```
+
+isi dengan konfigurasi berikut :
+
+```yaml
+version: '3.8'
+services:
+  postgres:
+    image: postgres:13
+    restart: always
+    environment:
+      - POSTGRES_USER=africa
+      - POSTGRES_PASSWORD=village_people
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+volumes:
+  postgres:
+```
+
+Launch docker :
+
+```bash
+$ docker-compose up -d
+```
+
+kemudian eksekusi :
+
+```bash
+$ docker ps 
+```
+
+
+
+----
 
 
 
