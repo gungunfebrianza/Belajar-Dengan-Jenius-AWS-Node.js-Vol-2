@@ -121,6 +121,19 @@ Prisma dapat digunakan dalam **Node.js** dan **Typescript Application** di **bac
 
 
 
+## Learning Path
+
+Untuk rute mempelajari prisma bisa dimulai dengan :
+
+1. [Prisma Concept](https://www.prisma.io/docs/concepts)
+2. [Prisma Guides](https://www.prisma.io/docs/guides)
+   - [Database Guide](https://www.prisma.io/docs/guides/database)
+   - [Optimization](https://www.prisma.io/docs/guides/performance-and-optimization)
+   - [Testing](https://www.prisma.io/docs/guides/testing/unit-testing)
+   - [Deployment](https://www.prisma.io/docs/guides/deployment)
+
+
+
 ## Object Relational Mapper (ORM)
 
 **Object Relational Mapper (ORM)** adalah sebuah **framework** yang menyediakan abstraksi agar sumber data yang tidak kompatibel  untuk pengolahan dara dapat digunakan pada suatu **database**. Prisma memiliki tiga **development tools**, diantaranya adalah :
@@ -148,6 +161,10 @@ Saat kita sedang melakukan pemasangan **module** terdapat dua mode yaitu :
 - **devDependencies** adalah **module** yang dibutuhkan saat melakukan **development**.
 - **dependencies** adalah **module** yang dibutuhkan saat **runtime**.
 
+
+
+#### Install Typescript
+
 ```bash
 $ npm install typescript ts-node @types/node --save-dev
 ```
@@ -162,7 +179,7 @@ Di bawah ini adalah penjelasan **modules** yang kita pasang :
 
 
 
-### Generate tsconfig
+#### Generate tsconfig
 
 Eksekusi perintah di bawah ini untuk memproduksi file konfigurasi **TypeScript** :
 
@@ -186,7 +203,7 @@ Selanjutnya ubah isi **file** konfigurasi dari **tsconfig.json** menjadi :
 
 
 
-### Setup Docker
+#### Setup Docker
 
 ```bash
 $ nano docker-compose.yml
@@ -222,6 +239,92 @@ kemudian eksekusi :
 ```bash
 $ docker ps 
 ```
+
+
+
+#### Install Prisma
+
+Selanjutnya install Prisma dengan cara mengeksekusi perintah di bawah ini :
+
+```bash
+$ npm install prisma --save-dev
+```
+
+
+
+#### Setup Prisma
+
+Saat **database server** telah berjalan menggunakan **docker** selanjutnya adalah **setup prisma** dengan cara mengeksekusi perintah di bawah ini :
+
+```bash
+$ npx prisma init
+```
+
+Setelah mengeksekusi perintah di atas terdapat **folder** dengan nama **prisma** dan **.env file** yang akan kita gunakan untuk menentukan koneksi ke **database**. 
+
+Perintah di atas akan memberikan **output** :
+
+```
+✔ Your Prisma schema was created at prisma/schema.prisma
+  You can now open it in your favorite editor.
+
+warn You already have a .gitignore file. Don't forget to add `.env` in it to not commit any private information.
+
+Next steps:
+1. Set the DATABASE_URL in the .env file to point to your existing database. If your database has no tables yet, read https://pris.ly/d/getting-started 
+2. Set the provider of the datasource block in schema.prisma to match your database: postgresql, mysql, sqlite, sqlserver, mongodb or cockroachdb.      
+3. Run prisma db pull to turn your database schema into a Prisma schema.
+4. Run prisma generate to generate the Prisma Client. You can then start querying your database.
+
+More information in our documentation:
+https://pris.ly/d/getting-started
+```
+
+
+
+#### Config .env
+
+Isi dari **.env file** :
+
+```
+DATABASE_URL="file:./dev.db"
+```
+
+
+
+#### Create Schema
+
+Pada **folder prisma** terdapat **file** dengan nama **scheme.prisma** yang dapat kita gunakan untuk melakukan **data modelling** :
+
+```
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  content   String?
+  published Boolean @default(false)
+  author    User?   @relation(fields: [authorId], references: [id])
+  authorId  Int?
+}
+
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+  posts Post[]
+}
+
+```
+
+Pada tahap ini kita akan menentukan **data model** dalam **Prisma schema file**, selanjutnya **data model** akan di **mapping** ke dalam **database** menggunakan **Prisma Migrate**. Proses **mapping** terjadi dengan cara mengeksekusi sekumpulan **SQL Statements** yang telah diproduksi secara otomatis untuk membuat sekumpulan **tables** sesuai dengan **data model** yang diberikan.
 
 
 
