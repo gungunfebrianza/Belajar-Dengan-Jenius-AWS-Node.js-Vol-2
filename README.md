@@ -76,6 +76,18 @@ Struktur **JSON Web Token (JWT)** :
 
 # Chapter 4 - Prisma.js
 
+**Prisma** adalah **Open Source Object Relational Mapper (ORM)** Generasi Terbaru (**Next-generation ORM**). Prisma dapat digunakan dalam **Node.js** dan **Typescript Application** di **back-end system**. **Prisma** dapat digunakan di dalam arsitektur **microservices** dan **serverless**. Kita bisa menerapkan Prisma untuk mempermudah pembangunan **REST API**, **GraphQL API** dan **gRPC API**.
+
+
+
+## Object Relational Mapper (ORM)
+
+**Object Relational Mapper (ORM)** adalah sebuah **framework** yang menyediakan abstraksi agar sumber data yang tidak kompatibel  untuk pengolahan dara dapat digunakan pada suatu **database**. Prisma memiliki tiga **development tools**, diantaranya adalah :
+
+1. **Prisma Client** - Untuk memproduksi **tyfe-safe database client** secara otomatis.
+2. **Prisma Migrate** - Untuk melakukan **data modelling** secara **declarative** dan kustomisasi **migrations**.
+3. **Prisma Studio** - Sebuah **Web Application** berbasis **Graphic User Interface (GUI)** untuk mengolah **database**.
+
 
 
 # Chapter 5 - Postman
