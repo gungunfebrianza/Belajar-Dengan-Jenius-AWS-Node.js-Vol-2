@@ -465,6 +465,8 @@ console.dir(listUsers, { depth: null });
 
 ---
 
+
+
 #### Read Related Record
 
 Untuk membaca **Related Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
@@ -484,6 +486,8 @@ console.dir(allUsers, { depth: null });
 
 ---
 
+
+
 #### Read Specific Record
 
 Untuk membaca **Specific Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
@@ -501,6 +505,8 @@ console.dir(resultFindByEmail);
 
 
 ----
+
+
 
 #### Read Specific Record
 
@@ -529,6 +535,8 @@ console.dir(findFirstUser);
 
 ---
 
+
+
 #### Read Filtered Record
 
 Untuk membaca **Record** dengan **Specific Filter** tambahkan kode berikut di dalam **entrypoint** di **main function** :
@@ -548,6 +556,8 @@ console.dir(filteredUsers);
 
 
 ---
+
+
 
 #### Read By Multiple Field 
 
@@ -583,6 +593,8 @@ console.dir(users);
 
 ---
 
+
+
 #### Read By Filtered Related Record
 
 Untuk membaca **Related Record** dengan **Filtered Field** tambahkan kode berikut di dalam **entrypoint** di **main function** :
@@ -607,6 +619,8 @@ const users = await prisma.user.findMany({
 
 ---
 
+
+
 #### Read By Subset of Field
 
 Untuk membaca **Record** dengan **Specific Subset of Field** tambahkan kode berikut di dalam **entrypoint** di **main function** :
@@ -628,6 +642,8 @@ console.dir(user);
 
 
 ---
+
+
 
 #### Read By Subset of Related Record
 
@@ -655,6 +671,8 @@ console.dir(user);
 
 ---
 
+
+
 #### Read Related Record
 
 Untuk membaca **Related Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
@@ -676,6 +694,8 @@ console.dir(users);
 
 ---
 
+
+
 #### Update Single Record
 
 Untuk memodifikasi **Single Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
@@ -692,6 +712,8 @@ console.dir(post);
 
 
 ---
+
+
 
 #### Update Multiple Record
 
@@ -714,6 +736,8 @@ const updateUsers = await prisma.user.updateMany({
 
 
 ---
+
+
 
 #### Update or Insert Record
 
@@ -740,6 +764,8 @@ const upsertUser = await prisma.user.upsert({
 
 ---
 
+
+
 #### Update Number Fields
 
 Untuk memodifikasi **Number Fields of Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
@@ -761,6 +787,85 @@ const updatePosts = await prisma.post.updateMany({
 
 
 ---
+
+
+
+#### Delete Single Record
+
+Untuk menghapus **Single Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//DELETE SINGLE RECORD
+const deleteUser = await prisma.user.delete({
+    where: {
+        email: "gungunfebrianza@prisma.io",
+    },
+});
+console.dir(listUsers, { depth: null });
+
+```
+
+
+
+---
+
+
+
+#### Delete Multiple Record
+
+Untuk menghapus **Multiple Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//DELETE MULTIPLE RECORD
+const deleteUsers = await prisma.user.deleteMany({
+    where: {
+        email: {
+            contains: "prisma.io",
+        },
+    },
+});
+```
+
+
+
+---
+
+
+
+#### Delete All Record
+
+Untuk menghapus **All Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//DELETE ALL RECORD
+const deleteUsers = await prisma.user.deleteMany({});
+CASCADING DELETE
+const deletePosts = prisma.post.deleteMany({
+    where: {
+        authorId: 7,
+    },
+});
+const deleteUser = prisma.user.delete({
+    where: {
+        id: 7,
+    },
+});
+```
+
+
+
+---
+
+
+
+#### Transaction
+
+Untuk menghapus **All Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//TRANSACTION
+const transaction = await prisma.$transaction([deletePosts, deleteUser]);
+```
 
 
 
