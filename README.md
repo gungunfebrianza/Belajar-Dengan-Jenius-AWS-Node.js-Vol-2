@@ -693,7 +693,7 @@ console.dir(post);
 
 ---
 
-#### Update Single Record
+#### Update Multiple Record
 
 Untuk memodifikasi **Multiple Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
 
@@ -715,7 +715,52 @@ const updateUsers = await prisma.user.updateMany({
 
 ---
 
+#### Update or Insert Record
 
+Untuk memodifikasi dengan **Update & Insert Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//UPSERT (UPDATE OR INSERT)
+const upsertUser = await prisma.user.upsert({
+    where: {
+        email: "viola@prisma.io",
+    },
+    update: {
+        name: "Viola the Magnificent",
+    },
+    create: {
+        email: "viola@prisma.io",
+        name: "Viola the Magnificent",
+    },
+});
+
+```
+
+
+
+---
+
+#### Update Number Fields
+
+Untuk memodifikasi **Number Fields of Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//UPDATE NUMBER FIELDS
+const updatePosts = await prisma.post.updateMany({
+    data: {
+        views: {
+            increment: 1,
+        },
+        likes: {
+            increment: 1,
+        },
+    },
+});
+```
+
+
+
+---
 
 
 
