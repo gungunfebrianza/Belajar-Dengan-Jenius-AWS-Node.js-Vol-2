@@ -148,15 +148,15 @@ Untuk rute mempelajari prisma bisa dimulai dengan :
 
 
 
-### Create Basic Project
+### Create MySQL CRUD Project
 
-Buat **directory project** kemudian di dalam **directory** eksekusi perintah di bawah ini :
+Buat **directory project** dengan nama **sqlite-prisma** kemudian di dalam **directory** eksekusi perintah di bawah ini :
 
 ```bash
 $ npm init -y
 ```
 
-Saat kita sedang melakukan pemasangan **module** terdapat dua mode yaitu :
+Selanjutnya kita akan melakukan pemasangan **module**, terdapat dua mode pemasangan yaitu :
 
 - **devDependencies** adalah **module** yang dibutuhkan saat melakukan **development**.
 - **dependencies** adalah **module** yang dibutuhkan saat **runtime**.
@@ -164,6 +164,318 @@ Saat kita sedang melakukan pemasangan **module** terdapat dua mode yaitu :
 
 
 #### Install Typescript
+
+Pertama kita akan melakukan instalasi **typescript development tools** :
+
+```bash
+$ npm install typescript ts-node @types/node --save-dev
+```
+
+Di bawah ini adalah penjelasan **modules** yang kita pasang :
+
+1. **Module typescript** digunakan agar kita memiliki **TypeScript toolchains**.
+2. **Module ts-node** digunakan agar kita bisa menjalankan **typescript applications**.
+3. **Module @types/node** digunakan agar **Node.js** yang kita pakai dapat menggunakan  **Type Definitions** dalam **Typescript**.
+
+
+
+----
+
+
+
+#### Generate tsconfig
+
+Eksekusi perintah di bawah ini untuk memproduksi file konfigurasi **TypeScript** :
+
+```bash
+$ tsc --init
+```
+
+Selanjutnya ubah isi **file** konfigurasi dari **tsconfig.json** menjadi :
+
+```json
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "outDir": "dist",
+    "strict": true,
+    "lib": ["esnext"],
+    "esModuleInterop": true
+  }
+}
+```
+
+
+
+----
+
+
+
+#### Install Prisma
+
+Selanjutnya install **Prisma** dengan cara mengeksekusi perintah di bawah ini :
+
+```bash
+$ npm install prisma --save-dev
+```
+
+
+
+----
+
+
+
+#### Setup Prisma
+
+Saat **database server** telah berjalan menggunakan **docker** selanjutnya adalah **setup prisma** dengan cara mengeksekusi perintah di bawah ini :
+
+```bash
+$ npx prisma init
+```
+
+Setelah mengeksekusi perintah di atas terdapat **folder** dengan nama **prisma** dan **.env file** yang akan kita gunakan untuk menentukan koneksi ke **database**. 
+
+Perintah di atas akan memberikan **output** :
+
+```
+✔ Your Prisma schema was created at prisma/schema.prisma
+  You can now open it in your favorite editor.
+
+warn You already have a .gitignore file. Don't forget to add `.env` in it to not commit any private information.
+
+Next steps:
+1. Set the DATABASE_URL in the .env file to point to your existing database. If your database has no tables yet, read https://pris.ly/d/getting-started 
+2. Set the provider of the datasource block in schema.prisma to match your database: postgresql, mysql, sqlite, sqlserver, mongodb or cockroachdb.      
+3. Run prisma db pull to turn your database schema into a Prisma schema.
+4. Run prisma generate to generate the Prisma Client. You can then start querying your database.
+
+More information in our documentation:
+https://pris.ly/d/getting-started
+```
+
+
+
+---
+
+
+
+#### Config .env
+
+Isi dari **.env file** :
+
+```
+DATABASE_URL="mysql://USERNAME:PASSWORD@localhost:3306/DATABASENAME"
+```
+
+Dalam **file .env** terdapat informasi :
+
+-  **User Credentials username** dan **password** ke **database** yang kita isi.
+- **Port Number MySQL** di **3306**.
+- **Database name** yang akan kita gunakan, jika belum di buat anda harus membuatnya terlebih dahulu.
+
+---
+
+
+
+#### Create Schema
+
+Pada **folder prisma** terdapat **file** dengan nama **scheme.prisma** yang dapat kita gunakan untuk melakukan **data modelling** :
+
+```pri
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model ExtendedProfile {
+  id        Int    @id @default(autoincrement())
+  biography String
+  user      User   @relation(fields: [userId], references: [id])
+  userId    Int    @unique
+}
+
+model User {
+  id           Int              @id @default(autoincrement())
+  name         String?
+  email        String           @unique
+  profileViews Int              @default(0)
+  role         Role             @default(USER)
+  posts        Post[]
+  profile      ExtendedProfile?
+}
+
+model Post {
+  id         Int        @id @default(autoincrement())
+  title      String
+  published  Boolean    @default(true)
+  author     User       @relation(fields: [authorId], references: [id])
+  authorId   Int
+  comments   Json?
+  views      Int        @default(0)
+  likes      Int        @default(0)
+  categories Category[]
+}
+
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  posts Post[]
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+```
+
+Pada tahap ini kita akan menentukan **data model** dalam **Prisma schema file**, selanjutnya **data model** akan di **mapping** ke dalam **database** menggunakan **Prisma Migrate**. Proses **mapping** terjadi dengan cara mengeksekusi sekumpulan **SQL Statements** yang telah diproduksi secara otomatis untuk membuat sekumpulan **tables** sesuai dengan **data model** yang diberikan.
+
+
+
+----
+
+
+
+#### Push Prisma
+
+**Push Prisma Scheme** ke dalam **database MySQL** dengan mengeksekusi perintah berikut :
+
+```bash
+$ npx prisma db push
+```
+
+
+
+---
+
+
+
+#### Prisma Studio
+
+Untuk memastikan bahwa table sudah dibuat kedalam mysql database gunakan Prisma Studio.
+
+Setelah itu eksekusi perintah di bawah ini :
+
+```bash
+$ npx prisma studio
+
+Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+Prisma Studio is up on http://localhost:5555
+```
+
+Selanjutnya anda bisa membuka **browser** dengan alamat **localhost** di **port 5555**.
+
+
+
+---
+
+
+
+#### Main Script
+
+Buatlah **File** dengan nama **Index.ts**, dengan kerangka berikut :
+
+```typescript
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
+async function main() {
+    // CRUD SCRIPT
+}
+main()
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });
+
+```
+
+
+
+----
+
+
+
+#### Create Single Record
+
+Untuk membuat **Single Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+// CREATE SINGLE RECORD
+const user = await prisma.user.create({
+    data: {
+        email: "gungunfebrianza@cryptolibertarian.id",
+        name: "Gun Gun Febrianza",
+    },
+});
+```
+
+
+
+----
+
+
+
+#### Prisma Seeder
+
+Tambahkan **script** berikut pada **package.json** :
+
+```javascript
+  "prisma": {
+    "seed": "ts-node --transpile-only prisma/seed.ts"
+  },
+```
+
+**Flag --transpile-only** digunakan untuk mempercepat eksekusi dengan mengabaikan proses **typechecking** sehingga bisa mengurangi beban **memory (RAM)**. Jalankan dengan perintah berikut :
+
+```bash
+$ npx prisma db seed
+```
+
+Perintah ini digunakan jika ingin melakukan uji coba manipulasi data, namun untuk proses **seeding** prisma menyediakan perintah  satu lagi yaitu :
+
+```bash
+$ npx prisma migrate reset
+```
+
+Perintah ini akan melakukan penghapusan data dan otomatis mengeksekusi perintah **seeding** sekaligus. Jika kita ingin mencegah proses **seeding** saat mengeksekusi migrate dan reset tambahkan **Flag** :
+
+```
+--skip-seed
+```
+
+
+
+---
+
+
+
+### Create SQLite CRUD Project
+
+Buat **directory project** dengan nama **sqlite-prisma** kemudian di dalam **directory** eksekusi perintah di bawah ini :
+
+```bash
+$ npm init -y
+```
+
+Selanjutnya kita akan melakukan pemasangan **module**, terdapat dua mode pemasangan yaitu :
+
+- **devDependencies** adalah **module** yang dibutuhkan saat melakukan **development**.
+- **dependencies** adalah **module** yang dibutuhkan saat **runtime**.
+
+
+
+#### Install Typescript
+
+Pertama kita akan melakukan instalasi **typescript development tools** :
 
 ```bash
 $ npm install typescript ts-node @types/node --save-dev
@@ -242,6 +554,10 @@ $ docker ps
 
 
 
+----
+
+
+
 #### Install Prisma
 
 Selanjutnya install Prisma dengan cara mengeksekusi perintah di bawah ini :
@@ -249,6 +565,10 @@ Selanjutnya install Prisma dengan cara mengeksekusi perintah di bawah ini :
 ```bash
 $ npm install prisma --save-dev
 ```
+
+
+
+----
 
 
 
@@ -282,6 +602,10 @@ https://pris.ly/d/getting-started
 
 
 
+---
+
+
+
 #### Config .env
 
 Isi dari **.env file** :
@@ -289,6 +613,10 @@ Isi dari **.env file** :
 ```
 DATABASE_URL="file:./dev.db"
 ```
+
+
+
+---
 
 
 
@@ -325,6 +653,101 @@ model User {
 ```
 
 Pada tahap ini kita akan menentukan **data model** dalam **Prisma schema file**, selanjutnya **data model** akan di **mapping** ke dalam **database** menggunakan **Prisma Migrate**. Proses **mapping** terjadi dengan cara mengeksekusi sekumpulan **SQL Statements** yang telah diproduksi secara otomatis untuk membuat sekumpulan **tables** sesuai dengan **data model** yang diberikan.
+
+
+
+#### Prisma Migration
+
+Jika anda telah menentukan **data model** eksekusi perintah di bawah ini untuk melakukan **migration** :
+
+```bash
+$ npx prisma migrate dev --name init
+
+Prisma schema loaded from prisma\schema.prisma
+Datasource "db": PostgreSQL database "mydb", schema "public" at "localhost:5432"
+
+PostgreSQL database mydb created at localhost:5432
+
+Applying migration `20220606035836_init`
+
+The following migration(s) have been created and applied from new schema changes:
+
+migrations/
+  └─ 20220606035836_init/
+    └─ migration.sql
+
+Your database is now in sync with your schema.
+
+✔ Generated Prisma Client (3.14.0 | library) to .\node_modules\@prisma\client in 63ms
+```
+
+
+
+#### Prisma Client
+
+**Prisma Client** untuk memproduksi **tyfe-safe query builder** yang digunakan untuk berinteraksi dengan **database** dari **Node.js Applications** dan **TypeScript Applications**. 
+
+```bash
+$ npm install @prisma/client
+```
+
+Selanjuntnya buatlah **directory** bernama **src** dan di dalamnya buat **file** dengan nama **index.ts**, tulis kode di bawah ini :
+
+```typescript
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
+// A `main` function so that you can use async/await
+async function main() {
+  const allUsers = await prisma.user.findMany({
+    include: { posts: true },
+  });
+  // use `console.dir` to print nested objects
+  console.dir(allUsers, { depth: null });
+}
+
+main()
+  .catch((e) => {
+    throw e;
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });
+
+```
+
+
+
+#### Update Package.json Script
+
+Tambahkan command dev :
+
+```json
+  "scripts": {
+    "dev": "ts-node ./script.ts"
+  },
+```
+
+
+
+---
+
+
+
+#### Prisma Studio
+
+Setelah itu eksekusi perintah di bawah ini :
+
+```bash
+$ npx prisma studio
+
+Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+Prisma Studio is up on http://localhost:5555
+```
+
+Selanjutnya anda bisa membuka **browser** dengan alamat **localhost** di **port 5555**.
 
 
 
