@@ -676,6 +676,43 @@ console.dir(users);
 
 ---
 
+#### Update Single Record
+
+Untuk memodifikasi **Single Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//UPDATE SINGLE RECORD
+const post = await prisma.user.update({
+    where: { id: 1 },
+    data: { profileViews: 100 },
+});
+console.dir(post);
+```
+
+
+
+---
+
+#### Update Single Record
+
+Untuk memodifikasi **Multiple Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//UPDATE MULTIPLE RECORD
+const updateUsers = await prisma.user.updateMany({
+    where: {
+        email: {
+            contains: "prisma.io",
+        },
+    },
+    data: {
+        role: "ADMIN",
+    },
+});
+```
+
+
+
 ---
 
 
