@@ -529,6 +529,161 @@ console.dir(findFirstUser);
 
 ---
 
+#### Read Filtered Record
+
+Untuk membaca **Record** dengan **Specific Filter** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//GET FILTERED LIST OF RECORDS
+const filteredUsers = await prisma.user.findMany({
+    where: {
+        email: {
+            endsWith: "cryptolibertarian.id",
+        },
+    },
+});
+console.dir(filteredUsers);
+```
+
+
+
+---
+
+#### Read By Multiple Field 
+
+Untuk membaca **Record** dengan **Multiple Field** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//GET BY MULTIPLE FIELD VALUES
+const users = await prisma.user.findMany({
+    where: {
+        OR: [
+            {
+                name: {
+                    startsWith: "G",
+                },
+            },
+            {
+                AND: {
+                    profileViews: {
+                        gt: 0,
+                    },
+                    role: {
+                        equals: "USER",
+                    },
+                },
+            },
+        ],
+    },
+});
+console.dir(users);
+```
+
+
+
+---
+
+#### Read By Filtered Related Record
+
+Untuk membaca **Related Record** dengan **Filtered Field** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//GET BY FILTERED RELATED RECORD OF FIELD VALUES
+const users = await prisma.user.findMany({
+    where: {
+        email: {
+            endsWith: "cryptolibertarian.id",
+        },
+        posts: {
+            some: {
+                published: true,
+            },
+        },
+    },
+});
+```
+
+
+
+---
+
+#### Read By Subset of Field
+
+Untuk membaca **Record** dengan **Specific Subset of Field** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//SELECT BY SUBSET OF FIELDS
+const user = await prisma.user.findUnique({
+    where: {
+        email: "gun@cryptolibertarian.id",
+    },
+    select: {
+        email: true,
+        profile: true,
+    },
+});
+console.dir(user);
+```
+
+
+
+---
+
+#### Read By Subset of Related Record
+
+Untuk membaca **Record** dengan **Specific Subset of Related Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//SELECT A SUBSET OF RELATED RECORD FIELDS
+const user = await prisma.user.findUnique({
+    where: {
+        email: "gun@cryptolibertarian.id",
+    },
+    select: {
+        email: true,
+        posts: {
+            select: {
+                likes: true,
+            },
+        },
+    },
+});
+console.dir(user);
+```
+
+
+
+---
+
+#### Read Related Record
+
+Untuk membaca **Related Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//READ RELATED RECORD
+const users = await prisma.user.findMany({
+    where: {
+        role: "USER",
+    },
+    include: {
+        posts: true,
+    },
+});
+console.dir(users);
+```
+
+
+
+---
+
+---
+
+
+
+
+
+---
+
 
 
 #### Prisma Seeder
