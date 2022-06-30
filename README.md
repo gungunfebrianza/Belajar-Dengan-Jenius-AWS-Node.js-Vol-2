@@ -424,6 +424,113 @@ const user = await prisma.user.create({
 
 
 
+#### Create Multiple Record
+
+Untuk membuat **Multiple Record** sekaligus tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//CREATE MULTIPLE RECORD
+const createMany = await prisma.user.createMany({
+    data: [
+        { name: "Gun", email: "gun@cryptolibertarian.id" },
+        {
+            name: "Gun Gun Febrianza",
+            email: "gungunfebrianza@cryptolibertarian.id",
+        }, // Duplicate unique key!
+        { name: "Maudy", email: "maudy@cryptolibertarian.id" },
+        { name: "KodokGempal", email: "KodokGempal@cryptolibertarian.id" },
+        { name: "KodokZuma", email: "KodokZuma@cryptolibertarian.id" },
+    ],
+    skipDuplicates: true,
+});
+```
+
+
+
+---
+
+
+
+#### Read All Record
+
+Untuk membaca **All Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//FIND ALL USER
+const listUsers = await prisma.user.findMany();
+console.dir(listUsers, { depth: null });
+```
+
+
+
+---
+
+#### Read Related Record
+
+Untuk membaca **Related Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//FIND ALL USER USING INCLUDE PROFILE
+const allUsers = await prisma.user.findMany({
+    include: {
+        posts: true,
+        profile: true,
+    },
+});
+console.dir(allUsers, { depth: null });
+```
+
+
+
+---
+
+#### Read Specific Record
+
+Untuk membaca **Specific Record** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//FIND SPECIFIC USER
+let resultFindByEmail = await prisma.user
+.findUnique({
+    where: { email: "gungunfebrianza@cryptolibertarian.id" },
+})
+.catch((error) => console.log(error));
+console.dir(resultFindByEmail);
+```
+
+
+
+----
+
+#### Read Specific Record
+
+Untuk membaca **Record** dengan **Specific Criteria** tambahkan kode berikut di dalam **entrypoint** di **main function** :
+
+```typescript
+//FIND BY SPECIFIC CRITERIA
+const findFirstUser = await prisma.user.findFirst({
+    where: {
+        posts: {
+            some: {
+                likes: {
+                    gt: 100,
+                },
+            },
+        },
+    },
+    orderBy: {
+        id: "desc",
+    },
+});
+console.dir(findFirstUser);
+```
+
+
+
+---
+
+
+
 #### Prisma Seeder
 
 Tambahkan **script** berikut pada **package.json** :
