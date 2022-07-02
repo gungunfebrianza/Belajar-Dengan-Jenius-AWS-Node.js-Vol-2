@@ -66,15 +66,16 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 
 # Chapter 2 - Node.js
 
-Last touched on 6-29-2022
+Last touched on 7-3-2022
 
-| Parameter                        | Value                       | Note |
-| -------------------------------- | --------------------------- | ---- |
-| Official Website                 | https://nodejs.org/en/      |      |
-| Node.js Latest Version (LTS)     | 16.15.1                     |      |
-| Node.js Latest Version (Current) | 18.14.0                     |      |
-|                                  |                             |      |
-| Node.js Blog                     | https://nodejs.org/en/blog/ |      |
+| Parameter                        | Value                                        | Note |
+| -------------------------------- | -------------------------------------------- | ---- |
+| Official Website                 | https://nodejs.org/en/                       |      |
+| Node.js Latest Version (LTS)     | 16.15.1                                      |      |
+| Node.js Latest Version (Current) | 18.14.0                                      |      |
+|                                  |                                              |      |
+| Node.js Blog                     | https://nodejs.org/en/blog/                  |      |
+| Node.js Security Group           | https://groups.google.com/g/nodejs-sec?pli=1 |      |
 
 
 
@@ -84,6 +85,43 @@ Saat kita sedang melakukan pemasangan **module** terdapat dua mode yaitu :
 
 - **devDependencies** adalah **module** yang dibutuhkan saat melakukan **development**.
 - **dependencies** adalah **module** yang dibutuhkan saat **runtime**.
+
+
+
+## Node.js Command Line Flag
+
+
+
+### Dependency Tree
+
+Untuk mendapatkan informasi dalam **dependencies** dari **node.js project** yang kita miliki eksekusi perintah di bawah ini :
+
+```bash
+$ npm ls
+```
+
+
+
+## Package.json
+
+**Node.js** telah mendukung konfigurasi terbaru dalam **package.json**, konfigurasi tersebut adalah **type**. Kita bisa mengubah **type** dengan **module** atau **commonJS** :
+
+```json
+{
+    "name": "my-package",
+    "type": "module",
+
+    "//": "...",
+    "dependencies": {
+    }
+}
+```
+
+Konfigurasi ini menentukan setiap **javascript files** akan diinterpretasikan sebagai **ES Modules** atau **CommonJS modules**. Konfigurasi dasar **type** pada **package.json** secara default adalah **CommonJS** jika tidak kita tambahkan. Jika kita menggunakan **type** dengan mode **module** maka ada beberapa **rules** baru :
+
+- Kita bisa menggunakan **import** dan **export statement**
+- Kita dapat menggunakan **Top-level await**
+- Jika kita menggunakan **Relative Import** maka kita harus menulisnya secara **full path (eg. "./foo.js")**
 
 
 
