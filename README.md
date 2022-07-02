@@ -125,6 +125,12 @@ Konfigurasi ini menentukan setiap **javascript files** akan diinterpretasikan se
 
 
 
+### .cjs & .mjs
+
+**Node.js** secara original menggunakan **CommonJS Format Module** dengan ciri penggunakan **keyword require** dan **module.export**. Namun selain **Format Module CommonJS** juga terdapat **EcmaScript Format Module**  dengan ciri penggunaan **keyword import** dan **export**, karena **EcmaScript** menjadi standard maka **Node.js** harus bisa memberikan dukungan untuk **EcmaScript Module**.
+
+Node.js akan membaca ekstensi **file .cjs** sebagai **CommonJS Modules** dan **.mjs** sebagai **EcmaScript Modules**.
+
 ----
 
 
