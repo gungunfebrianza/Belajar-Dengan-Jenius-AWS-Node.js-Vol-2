@@ -5,11 +5,62 @@ Baca Versi sebelumnya [Belajar Dengan Jenius Node.js Volume 1](https://github.co
 
 
 
+# Table of Contents
 
+- Git
+- Node.js
+- Express.js
+- Prisma.js
+  - Create MySQL CRUD Project
+    - Setup
+      - Install Typescript
+      - Generate tsconfig
+      - Install Prisma
+      - Setup Prisma
+      - Config .env
+      - Create Schema
+      - Push Prisma
+    - Main Script
+      - Create
+        - Create Single Record
+        - Create Multiple Record
+      - Read
+        - Read All Record
+        - Read Related Record
+        - Read Specific Record
+        - Read Filtered Record
+        - Read By Multiple Field
+        - Read By Filtered Related Record
+        - Read By Subset of Field
+        - Read By Subset of Related Record
+        - Read Related Record
+      - Update
+        - Update Single Record
+        - Update Multiple Record
+        - Update or Insert Record
+        - Update Number Field
+      - Delete
+        - Delete Single Record
+        - Delete Multiple Record
+        - Delete All Record
+      - Transaction
+      - Prisma Seeder
+- Postman
+- Docker
+- Amazon Web Services
+- Big Data
+
+
+
+---
 
 
 
 # Chapter 1 - Git 
+
+
+
+----
 
 
 
@@ -36,15 +87,21 @@ Saat kita sedang melakukan pemasangan **module** terdapat dua mode yaitu :
 
 
 
+----
+
+
+
+
+
 # Chapter 3 - Express.js
 
 Last touched on 6-29-2022
 
-| Parameter  | Value                                     | Note |
-| ---------- | ----------------------------------------- | ---- |
-| Repository | 3.14.0 - https://github.com/prisma/prisma |      |
-| Website    | [www.prisma.io](https://www.prisma.io)    |      |
-|            |                                           |      |
+| Parameter  | Value | Note |
+| ---------- | ----- | ---- |
+| Repository |       |      |
+| Website    |       |      |
+|            |       |      |
 
 
 
@@ -102,6 +159,10 @@ Struktur **JSON Web Token (JWT)** :
 1. Header
 2. Payload
 3. Signature
+
+
+
+----
 
 
 
@@ -1224,7 +1285,15 @@ Pada **Postman Dekstop App footer** klik **Capture Request**, kemudian **install
 
 
 
+----
+
+
+
 # Chapter 6 - [Docker](https://github.com/gungunfebrianza/Belajar-Dengan-Jenius-AWS-Node.js-Vol-2/blob/main/Docker.md)
+
+
+
+----
 
 
 
